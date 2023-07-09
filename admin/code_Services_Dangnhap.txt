@@ -1,0 +1,32 @@
+else if (url == "/Dangnhap") {
+            req.on("end", () => {
+                let ket_qua = {
+                    "Noi_dung": true
+                }
+                let user=JSON.parse(noi_dung_nhan);
+                let dieukien = {
+                    $and: [
+                        { "Ten_Dang_nhap": user.Ten_Dang_nhap },
+                        { "Mat_khau": user.Mat_khau }
+                    ]
+                }
+                db.getOne("user",dieukien).then(result=>{
+                    console.log(result)
+                    ket_qua.Noi_dung = {
+                        "Ho_ten": result.Ho_ten,
+                        "Nhom": {
+                            "Ma_so": result.Nhom_Nguoi_dung.Ma_so,
+                            "Ten": result.Nhom_Nguoi_dung.Ten
+                        }
+                    };
+                    res.writeHead(200, { "Content-Type": "text/json;charset=utf-8" });
+                    res.end(JSON.stringify(ket_qua));
+
+                }).catch(err=>{
+                    console.log(err);
+                    ket_qua.Noi_dung=false;
+                    res.writeHead(200, { "Content-Type": "text/json;charset=utf-8" });
+                    res.end(JSON.stringify(ket_qua));
+                })	
+            })
+        }

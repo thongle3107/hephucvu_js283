@@ -1,0 +1,81 @@
+b1 ==================================
+// Upload Media -----------------------------------------------------------------
+function decodeBase64Image(dataString) {
+    var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
+        response = {};
+
+    if (matches.length !== 3) {
+        return new Error('Error ...');
+    }
+
+    response.type = matches[1];
+    response.data = new Buffer(matches[2], 'base64');
+
+    return response;
+}
+
+function saveMedia(Ten, Chuoi_nhi_phan) {
+    var Kq = "OK"
+    try {
+        var Nhi_phan = decodeBase64Image(Chuoi_nhi_phan);
+        var Duong_dan = "images//" + Ten
+        fs.writeFileSync(Duong_dan, Nhi_phan.data);
+    } catch (Loi) {
+        Kq = Loi.toString()
+    }
+    return Kq
+}
+================================================
+
+
+else if (url == "/ThemDienthoai") {
+                req.on('end', function () {
+                    let mobile = JSON.parse(noi_dung_nhan);
+                    let ket_qua = { "Noi_dung": true };
+                    db.insertOne("mobile", mobile).then(result => {
+                        console.log(result);
+                        res.writeHead(200, { "Content-Type": "text/json;charset=utf-8" });
+                        res.end(JSON.stringify(ket_qua));
+                    }).catch(err => {
+                        console.log(err);
+                        ket_qua.Noi_dung = false;
+                        res.writeHead(200, { "Content-Type": "text/json;charset=utf-8" });
+                        res.end(JSON.stringify(ket_qua));
+                    })
+                })
+            }
+
+==================================================================================
+
+
+else if (url == "/ImagesDienthoai") {
+                req.on('end', function () {
+                    let img = JSON.parse(noi_dung_nhan);
+                    let Ket_qua = { "Noi_dung": true };
+                    // upload img in images NODE ------------------------------
+                    
+                    let kq = saveMedia(img.name, img.src)
+                    if (kq == "OK") {
+                        res.writeHead(200, { "Content-Type": "text/json; charset=utf-8" });
+                        res.end(JSON.stringify(Ket_qua));
+                    }else{
+                        Ket_qua.Noi_dung=false
+                        res.writeHead(200, { "Content-Type": "text/json; charset=utf-8" });
+                        res.end(JSON.stringify(Ket_qua));
+                    }
+
+                    // upload img host cloudinary ------------------------------
+                    /*
+                    imgCloud.UPLOAD_CLOUDINARY(img.name,img.src).then(result=>{
+                        console.log(result);
+                        res.end(JSON.stringify(Ket_qua));
+
+                    }).catch(err=>{
+                        Ket_qua.Noi_dung=false
+                        res.end(JSON.stringify(Ket_qua))
+                    })
+                    */
+                })
+
+            }
+

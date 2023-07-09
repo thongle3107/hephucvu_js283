@@ -1,0 +1,16 @@
+else if (url == "/SuaDienthoai") {
+                req.on('end', function () {
+                    let mobile = JSON.parse(noi_dung_nhan);
+                    let ket_qua = { "Noi_dung": true };
+                    db.updateOne("mobile",mobile.condition,mobile.update).then(result=>{
+                        console.log(result);
+                        res.writeHead(200, { "Content-Type": "text/json;charset=utf-8" });
+                        res.end(JSON.stringify(ket_qua));
+                    }).catch(err=>{
+                        console.log(err);
+                        ket_qua.Noi_dung = false;
+                        res.writeHead(200, { "Content-Type": "text/json;charset=utf-8" });
+                        res.end(JSON.stringify(ket_qua)) 
+                    })
+                })
+            }

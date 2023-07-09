@@ -1,0 +1,32 @@
+# 127.0.0.1 || localhost
+# GET: lấy dữ liệu
+# POST: Cập nhật dữ liệu (Thêm, Sửa, Xóa)  )
+GET http://127.0.0.1:8080
+###
+POST http://localhost:8080
+###
+GET http://localhost:8080/dsTivi
+###
+GET http://localhost:8080/dsDienthoai
+###
+GET http://localhost:8080/dsMathang
+###
+GET http://localhost:8080/Cuahang
+###
+GET http://localhost:8080/dsHocsinh
+###
+GET http://localhost:8080/dsNguoidung
+###
+POST http://localhost:8080/ThemNguoidung
+Content-Type: application/json
+
+{
+    "Ma_so":"QL_100",
+    "Ho_ten":"Nguyễn Anh Tài",
+}
+###POST Lien he
+POST http://localhost:8080/Lienhe
+
+# GET image
+###
+GET http://localhost:8080/MON_AN_1.png

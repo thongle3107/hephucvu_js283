@@ -1,0 +1,52 @@
+Lệnh tạo ra tập tin package.json
+
+    npm init -y
+
+Lệnh cài đặt các gói module
+
+    npm i <moduleName>[@X.XX] --s
+
+Lệnh gởi cài đặt các gói module
+
+    npm uninstall <moduleName>
+
+Lệnh cài đặt các module trong tập tin package.json
+
+    npm i
+========================================================================
+
+Thực thi Server: Một trong 3 Cách
+Cách 1 
+    Debug -> F5
+Cách 2: Terminate
+    node .\server.js
+    stop -> Ctrl + C
+* Cách 3: 
+    3.1 Trong tập tin: package.js
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node ./server.js"
+    },
+    3.2 Terminate
+    npm start
+    stop -> Ctrl + C -> Y
+=======================================================
+Test Server
+    b1 Cài đặt extension của VSCode
+        REST Client
+    b2 Trong ứng dụng tạo tập tin 
+        testAPI.rest
+========================================================
+npm i dotenv
+Tạo tập tin: .env trong ứng dụng
+    NAME=value
+    ....=....
+    
+Trong tập tin server.js
+    require('dotenv').config()
+Lấy giá trị trong tập tin .env
+    process.env.NAME    
+
+
+
+        

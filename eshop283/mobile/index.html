@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Tivipage</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/mystyles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/default.css">
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="/home/index.html">Shop 283</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="../home/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!-- <li><a class="dropdown-item" href="../home/">Products Sale</a></li> -->
+
+                            <li><a class="dropdown-item" href="../tivi/">Tivi</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href=".">Mobile</a></li>
+                            <!-- <li><a class="dropdown-item" href="#!">Food</a></li> -->
+                        </ul>
+
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../contact/">Contact</a></li>
+                </ul>
+                <form class="d-flex">
+                    <button class="btn btn-sm btn-outline-dark" type="button" onclick="openCart()">
+                        <i class="bi-cart-fill me-1"></i>
+                        Cart
+                        <span class="badge bg-dark text-white ms-1 rounded-pill" id="Th_Giohang">0</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container">
+        <div class="fade-in-image">
+            <img src="/img/mobilebanner.jpg" style="height: 80vh;">
+        </div>
+    </section>
+
+
+
+
+    <!-- Header-->
+    <!-- <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5" id="thCuahang"></div>
+    </header> -->
+    <!-- Section-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div id="thNhom">
+                        <button class="btn btn-sm btn-outline-dark mt-auto"
+                            onclick="xuatSanphamtheoNhom('ALL')">ALL</button>
+
+                        <button class="btn btn-sm btn-outline-dark mt-auto"
+                            onclick="xuatSanphamtheoNhom('IPHONE')">IPHONE</button>
+
+                        <button class="btn btn-sm btn-outline-dark mt-auto"
+                            onclick="xuatSanphamtheoNhom('ANDROID')">ANDOID</button>
+
+                        <!-- <button class="btn btn-sm btn-outline-dark mt-auto"
+                            onclick="xuatSanphamtheoNhom('HTC')">HTC</button>
+
+                        <button class="btn btn-sm btn-outline-dark mt-auto"
+                            onclick="xuatSanphamtheoNhom('KHAC')">KHÁC</button> -->
+                    </div>
+                </div>
+                <div class="col-12 col-md-6" style="text-align: right;">
+                    <input onkeyup="keyCode(event)" type="text" name="" id="gtTim" class="inputSearch"
+                        placeholder="Search Enter">
+                    <button onclick="sxTen(this)" id="sxTen" class="btn btn-sm btn-outline-dark mt-auto" sort="1">NAME
+                        &uArr;</button>
+                    <button onclick="sxGia(this)" id="sxGia" class="btn btn-sm btn-outline-dark mt-auto" sort="1">PRICE
+                        &uArr;</button>
+                    <!-- <button id="btnTim" class="btn btn-sm btn-outline-dark mt-auto">Tìm</button> -->
+                        <br>
+                    <input type="range" onchange="locGia(this)" name="" id="locGia" min="0" max="10" step="50000"
+                        value="0" style="width:30%;">
+                    <label for="locGia" id="lblGia">0<sup>đ</sup></label>
+                </div>
+            </div>
+            <h4>Mobile</h4>
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="thLstMobile">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer-->
+    <section class="news py-5">
+        <div class="container py-5">
+            <div class="row" style="margin-left: 100px;">
+                <div class="col-lg-9 m-auto text-center">
+                    <h1>Join Our Secret Society</h1>
+                    <input type="text" class="px-3" placeholder="Enter Ur Email">
+                    <button class="btn2">Submit</button>
+                </div>
+            </div>
+            <div class="row py-5">
+                <div class="col-lg-11">
+                    <div class="row" >
+                        <div class="px-4 px-lg-5 my-5 col-lg-4" id="thCuahang"></div>
+                        <div class="col-lg-4">
+                            <h5 class="pb-3">CUSTOMER CARE</h5>
+                            <p>Regular</p>
+                            <p>On Ti,e</p>
+                            <p>Alawys Care</p>
+                        </div>
+                        <!-- <div class="col-lg-3">
+                            <h5 class="pb-3">CUSTOMER CARE</h5>
+                            <p>Regular</p>
+                            <p>On Ti,e</p>
+                            <p>Alawys Care</p>
+                        </div> -->
+                        <div class="col-lg-4">
+                            <h5 class="pb-3">CUSTOMER CARE</h5>
+                            <span><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></span>
+                            <span><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></span>
+                            <span><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></span>
+                            <span><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center"></p>
+        </div>
+    </section>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="../js/api.js"></script>
+    <script src="../js/cuahang.js"></script>
+    <script src="../js/mobile.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/carts.js"></script>
+    <script>
+        if (sessionStorage.getItem("carts") != undefined) {
+            carts = JSON.parse(sessionStorage.getItem("carts"))
+            document.getElementById("Th_Giohang").innerHTML = carts.length
+        }
+        apiCuahang().then(result => {
+            //console.log(result);
+            cuaHang = result;
+            xuatCuahang(cuaHang, thCuahang)
+            apiDienthoai().then(result => {
+                dsDienthoai = result
+                ds = result
+                xuatSanphamDienthoai(dsDienthoai, thLstMobile)
+                console.log(dsDienthoai)
+                // Tìm giá Lớn nhất trong sản phẩm
+                dsDienthoai.sort((a, b) => {
+                    return b.Don_gia_Ban - a.Don_gia_Ban
+                })
+                document.getElementById("locGia").setAttribute("max", dsDienthoai[0].Don_gia_Ban)
+
+                taoNhom();
+                xuatNhom(dsNhom, thNhom)
+            })
+        }).catch(err => {
+            console.log(err)
+        })
+    </script>
+</body>
+
+</html>
